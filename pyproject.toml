@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "district-capitals"
+version = "0.1.0"
+description = "An a API of District Capitals in Ghana"
+authors = ["sadatyussuf <tommyleespartan0@gmail.com>"]
+readme = "README.md"
+packages = [{include = "district_capitals"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.87.0"
+uvicorn = {extras = ["standard"], version = "^0.20.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
