@@ -1,8 +1,8 @@
 import mongoengine as mongo
 
 
-class Capitals(mongo.Document):
-    meta = {"db_alias": "district_capitals"}
+class Capital(mongo.Document):
+    # meta = {"collection_alias": "capital"}
     COV_DIST_1 = mongo.IntField(required=True)
     NAMECAP = mongo.StringField(required=True)
     DISTRICT = mongo.StringField(required=True)
