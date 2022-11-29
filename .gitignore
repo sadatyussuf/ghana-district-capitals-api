@@ -3,4 +3,6 @@
 data.json
 __pycache__
 .vscode
-
+district_capitals.json
+result.json
+run.py
