@@ -8,7 +8,7 @@ from ..models.district_capitals_model import Capital as Capitals
 router = APIRouter(tags=["District Capitals"], prefix="/district_capitals")
 
 
-@router.get("/")
+@router.get("/", status_code=status.HTTP_200_OK)
 def get_all_district_capitals():
 
     response = json.loads(Capitals.objects().to_json())
@@ -19,7 +19,13 @@ def get_all_district_capitals():
     return response
 
 
-@router.get("/{name}")
+@router.get("/{id}", status_code=status.HTTP_200_OK)
+def get_district_capitals_by_id(id: int):
+    response = json.loads(Capitals.objects(COV_DIST_1=id).to_json())
+    return response
+
+
+@router.get("/name/{name}", status_code=status.HTTP_200_OK)
 def get_district_capitals_by_name_or_district(name: str):
     try:
         response = json.loads(
@@ -37,9 +43,3 @@ def get_district_capitals_by_name_or_district(name: str):
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="No Item Found with that name"
         )
-
-
-@router.get("/{id}")
-def get_district_capitals_by_id(id: int):
-    response = json.loads(Capitals.objects(COV_DIST_1=id).to_json())
-    return response
