@@ -8,7 +8,7 @@ def connect_to_database():
 
     if settings.DEBUG:
         print("connected to production server")
-        # * Will do it later
+        connect(db=settings.DB_NAME, host=settings.PROD_DB_HOST)
     if not settings.DEBUG:
         print("connected to local server")
         connect(db=settings.DB_NAME, host=settings.DB_HOST, port=settings.DB_PORT)
